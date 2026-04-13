@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calorie Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">🌿 Daily Wellness</div>
+    <h1>Calorie Tracker</h1>
+    <p>Track what you eat, feel your best every day.</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="dash-top">
+      <div class="dash-cal">
+        <div class="label">Today's Calories</div>
+        <div class="cal-display" id="totalCal">0 <span>kcal</span></div>
+        <div class="cal-goal" id="calGoalLabel">Goal: 2000 kcal</div>
+      </div>
+      <div class="dash-stats">
+        <div class="stat-pill">🍽️ <span id="itemCount">0 items</span></div>
+        <div class="stat-pill">🔥 <span id="remainLabel">2000 kcal left</span></div>
+      </div>
+    </div>
+    <div class="goal-row">
+      <label>Daily goal (kcal):</label>
+      <input class="goal-input" type="number" id="goalInput" value="2000" min="500" max="5000" placeholder="2000"/>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span>0</span><span id="progGoalLabel">2000 kcal</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="input-card">
+    <h2>What did you eat today?</h2>
+    <div class="search-row">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="foodInput" placeholder="Type a food name…" autocomplete="off"/>
+        <div class="autocomplete" id="autocomplete"></div>
+      </div>
+      <button class="add-btn" onclick="addFromInput()">+ Add</button>
+    </div>
+    <div class="quick-label">Quick add by category</div>
+    <div class="categories" id="categoriesEl"></div>
+  </div>
+
+  <!-- Food List -->
+  <div>
+    <div class="list-header">
+      <h2>Today's Log</h2>
+      <button class="reset-btn" onclick="resetAll()">🗑️ Reset</button>
+    </div>
+    <div class="food-list" id="foodList">
+      <div class="empty-state">
+        <span class="big">🥗</span>
+        Nothing logged yet.<br>Add your first meal above!
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions -->
+  <div class="suggest-card under" id="suggestCard">
+    <div class="suggest-header">
+      <span class="suggest-emoji" id="suggestEmoji">💡</span>
+      <div class="suggest-title" id="suggestTitle">Start tracking to get suggestions</div>
+    </div>
+    <p class="suggest-text" id="suggestText">Add foods above and we'll give you personalized recommendations based on your calorie goal.</p>
+    <div class="suggest-chips" id="suggestChips"></div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
